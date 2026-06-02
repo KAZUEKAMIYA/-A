@@ -1,0 +1,38 @@
+{
+  "version": "0.1.0",
+  "id": "629a3bcc-a518-43e7-b7bc-11da6b56ec2e",
+  "timestamp": "2026-05-13T12:21:46.205Z",
+  "files": [
+    {
+      "path": "..\\..\\..\\.claude\\projects\\C--Users-kazuk-OneDrive-------------A\\memory\\MEMORY.md",
+      "conversations": [
+        {
+          "contributor_type": "ai",
+          "model": "anthropic/claude-opus-4-5-20251101",
+          "ranges": [
+            {
+              "start_line": 1,
+              "end_line": -1
+            }
+          ],
+          "description": "Edit: text replacement"
+        }
+      ]
+    }
+  ],
+  "tool": {
+    "name": "taisun-agent",
+    "version": "2.10.1"
+  },
+  "metadata": {
+    "dev.taisun": {
+      "hook": "agent-trace-capture",
+      "tool_used": "Edit"
+    }
+  },
+  "vcs": {
+    "type": "git",
+    "commit": "ref: refs/heads/master",
+    "branch": "master"
+  }
+}

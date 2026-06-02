@@ -1,0 +1,38 @@
+{
+  "version": "0.1.0",
+  "id": "70be401c-77a6-4e08-a393-c472a61e6194",
+  "timestamp": "2026-06-01T03:02:51.142Z",
+  "files": [
+    {
+      "path": "基礎講義0531\\サマリー_0531_デジイナ基礎講義.md",
+      "conversations": [
+        {
+          "contributor_type": "ai",
+          "model": "anthropic/claude-opus-4-5-20251101",
+          "ranges": [
+            {
+              "start_line": 1,
+              "end_line": -1
+            }
+          ],
+          "description": "Write: file creation/overwrite"
+        }
+      ]
+    }
+  ],
+  "tool": {
+    "name": "taisun-agent",
+    "version": "2.10.1"
+  },
+  "metadata": {
+    "dev.taisun": {
+      "hook": "agent-trace-capture",
+      "tool_used": "Write"
+    }
+  },
+  "vcs": {
+    "type": "git",
+    "commit": "ref: refs/heads/master",
+    "branch": "master"
+  }
+}

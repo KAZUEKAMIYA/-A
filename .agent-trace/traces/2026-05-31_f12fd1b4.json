@@ -1,0 +1,38 @@
+{
+  "version": "0.1.0",
+  "id": "f12fd1b4-249e-44a5-8196-6910d00d9def",
+  "timestamp": "2026-05-31T14:08:48.419Z",
+  "files": [
+    {
+      "path": "ログ\\2026-05-31_セッション7ログ.md",
+      "conversations": [
+        {
+          "contributor_type": "ai",
+          "model": "anthropic/claude-opus-4-5-20251101",
+          "ranges": [
+            {
+              "start_line": 1,
+              "end_line": -1
+            }
+          ],
+          "description": "Write: file creation/overwrite"
+        }
+      ]
+    }
+  ],
+  "tool": {
+    "name": "taisun-agent",
+    "version": "2.10.1"
+  },
+  "metadata": {
+    "dev.taisun": {
+      "hook": "agent-trace-capture",
+      "tool_used": "Write"
+    }
+  },
+  "vcs": {
+    "type": "git",
+    "commit": "ref: refs/heads/master",
+    "branch": "master"
+  }
+}

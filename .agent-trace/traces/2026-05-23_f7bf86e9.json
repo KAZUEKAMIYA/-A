@@ -1,0 +1,38 @@
+{
+  "version": "0.1.0",
+  "id": "f7bf86e9-7309-422d-a8d1-8d3af2a9911a",
+  "timestamp": "2026-05-23T09:33:07.354Z",
+  "files": [
+    {
+      "path": "worldcup2026.html",
+      "conversations": [
+        {
+          "contributor_type": "ai",
+          "model": "anthropic/claude-opus-4-5-20251101",
+          "ranges": [
+            {
+              "start_line": 1,
+              "end_line": -1
+            }
+          ],
+          "description": "Edit: text replacement"
+        }
+      ]
+    }
+  ],
+  "tool": {
+    "name": "taisun-agent",
+    "version": "2.10.1"
+  },
+  "metadata": {
+    "dev.taisun": {
+      "hook": "agent-trace-capture",
+      "tool_used": "Edit"
+    }
+  },
+  "vcs": {
+    "type": "git",
+    "commit": "ref: refs/heads/master",
+    "branch": "master"
+  }
+}

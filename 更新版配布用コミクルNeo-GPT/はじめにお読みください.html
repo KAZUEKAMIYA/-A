@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コミクル Neo-GPT｜はじめにお読みください</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Meiryo", "メイリオ", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: #f5f6fa;
+      color: #2d2d2d;
+      line-height: 1.85;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: white;
+      text-align: center;
+      padding: 52px 24px 44px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      padding: 3px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .hero h1 { font-size: 28px; font-weight: bold; margin-bottom: 10px; }
+    .hero p  { font-size: 15px; color: #b0c4de; }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1a1a2e;
+      border-left: 5px solid #e94560;
+      padding-left: 12px;
+      margin: 48px 0 18px;
+    }
+
+    /* アラート */
+    .alert {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .alert-red    { background: #fff0f0; border: 2px solid #e94560; }
+    .alert-yellow { background: #fffbec; border: 2px solid #f5a623; }
+    .alert-blue   { background: #eff6ff; border: 2px solid #4a90d9; }
+    .alert-icon { font-size: 26px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .alert-body h3 { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
+    .alert-red h3    { color: #c0392b; }
+    .alert-yellow h3 { color: #b07a00; }
+    .alert-blue h3   { color: #1a5fa0; }
+    .alert-body p  { font-size: 14px; color: #444; }
+    .alert-body strong { color: #1a1a2e; }
+
+    /* ツール選択カード */
+    .tool-select {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .tool-card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 2px solid transparent;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .tool-card.desktop { border-color: #4a90d9; }
+    .tool-card.code    { border-color: #3cba6e; }
+    .tool-card .t-icon { font-size: 36px; margin-bottom: 10px; }
+    .tool-card h3 { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
+    .tool-card.desktop h3 { color: #1a5fa0; }
+    .tool-card.code h3    { color: #217a48; }
+    .tool-card p  { font-size: 13px; color: #666; }
+
+    /* セットアップブロック */
+    .setup-block {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .setup-header {
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .setup-header.blue  { background: #2c6fad; }
+    .setup-header.green { background: #2a8a52; }
+    .setup-header span.tag {
+      background: rgba(255,255,255,0.25);
+      font-size: 11px;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: normal;
+    }
+
+    /* ステップ */
+    .steps { display: flex; flex-direction: column; }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      background: #1a1a2e;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-body h4 { font-size: 14px; font-weight: bold; margin-bottom: 4px; color: #1a1a2e; }
+    .step-body p  { font-size: 13px; color: #555; }
+    .step-body code {
+      display: inline-block;
+      background: #f0f0f5;
+      border-radius: 5px;
+      padding: 2px 10px;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 12px;
+      color: #c0392b;
+      margin-top: 5px;
+    }
+    .step-body .note { font-size: 12px; color: #999; margin-top: 4px; }
+
+    /* 使い方・Q&A */
+    .usage-flow {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .usage-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    .qa-item {
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .qa-item:last-child { border-bottom: none; }
+    .qa-num {
+      background: #e94560;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .qa-body .q { font-size: 14px; font-weight: bold; color: #1a1a2e; margin-bottom: 4px; }
+    .qa-body .q::before { content: "Claude が聞きます："; font-size: 12px; color: #e94560; font-weight: normal; display: block; margin-bottom: 2px; }
+    .qa-body .a { font-size: 13px; color: #555; }
+    .qa-body .a-label { font-size: 11px; color: #888; }
+
+    .auto-badge {
+      background: #f0faf4;
+      border: 1px solid #3cba6e;
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: #217a48;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* FAQ */
+    .faq { display: flex; flex-direction: column; }
+    .faq-item {
+      background: white;
+      padding: 16px 20px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .faq-item:first-child { border-radius: 10px 10px 0 0; }
+    .faq-item:last-child  { border-radius: 0 0 10px 10px; border-bottom: none; }
+    .faq-q { font-size: 14px; font-weight: bold; color: #c0392b; margin-bottom: 5px; }
+    .faq-q::before { content: "Q. "; }
+    .faq-a { font-size: 14px; color: #444; }
+    .faq-a::before { content: "A. "; font-weight: bold; color: #1a5fa0; }
+
+    footer {
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      color: #aaa;
+      border-top: 1px solid #e8e8e8;
+    }
+
+    @media (max-width: 480px) {
+      .tool-select { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="badge">コミクル Neo-GPT</div>
+  <h1>電子書籍＋漫画 完全自動生成</h1>
+  <p>テーマを入力するだけで、原稿・挿絵・漫画・Word ファイルを全自動で生成します</p>
+</div>
+
+<div class="container">
+
+  <!-- ===== 使う前の重要事項 ===== -->
+  <div class="section-title">使う前に必ずご確認ください</div>
+
+  <div class="alert alert-red">
+    <div class="alert-icon">&#9888;</div>
+    <div class="alert-body">
+      <h3>OpenAI の組織認証（Verification）を先に完了してください</h3>
+      <p>
+        このシステムは画像生成に <strong>OpenAI の gpt-image-2</strong> を使います。<br>
+        このモデルは <strong>組織認証（Organization Verification）を通過していないと利用できません。</strong><br><br>
+        認証の場所：OpenAI Platform にログイン &rarr; <strong>Settings &rarr; Organization &rarr; Verifications</strong><br>
+        認証が完了してから次の手順に進んでください。
+      </p>
+    </div>
+  </div>
+
+  <div class="alert alert-yellow">
+    <div class="alert-icon">&#128203;</div>
+    <div class="alert-body">
+      <h3>目次は自動生成されません。必要な場合は自分で作成してください</h3>
+      <p>
+        生成される <strong>final_book.docx</strong> には目次は含まれていません。<br>
+        Kindle 出版などで目次が必要な場合は、Word の「参考資料」タブから手動で挿入してください。
+      </p>
+    </div>
+  </div>
+
+  <div class="alert alert-yellow">
+    <div class="alert-icon">&#128218;</div>
+    <div class="alert-body">
+      <h3>完成した Word ファイルは Kindle Previewer で最終確認してください</h3>
+      <p>
+        生成された <strong>final_book.docx</strong> を Word で開くと、漫画ページ前後に空白ページが表示されることがあります。<br>
+        これはファイルの不具合ではありません。<br><br>
+        <strong>Kindle Previewer アプリで開いて正常に表示されれば問題ありません。</strong><br>
+        Kindle Previewer は Amazon の公式サイトから無料でダウンロードできます（Windows・Mac 両対応）。
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ===== どちらで使いますか？ ===== -->
+  <div class="section-title">どちらで使いますか？</div>
+
+  <div class="tool-select">
+    <div class="tool-card desktop">
+      <div class="t-icon">&#128187;</div>
+      <h3>Claude デスクトップアプリ</h3>
+      <p>Claude の公式デスクトップアプリを使う方</p>
+    </div>
+    <div class="tool-card code">
+      <div class="t-icon">&#9881;</div>
+      <h3>Claude Code（CLI）</h3>
+      <p>ターミナルから Claude Code を使う方</p>
+    </div>
+  </div>
+
+
+  <!-- ===== Claude デスクトップアプリ ===== -->
+  <div class="setup-block">
+    <div class="setup-header blue">
+      &#128187;&nbsp; Claude デスクトップアプリを使う場合
+      <span class="tag">必要なセットアップ：1ステップのみ</span>
+    </div>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>OpenAI の API キーを取得して .env ファイルに設定する</h4>
+          <p>
+            同梱の <strong>OpenAI_APIキー取得マニュアル</strong> を参照して API キーを取得し、<br>
+            このフォルダにある <strong>.env ファイル</strong> を開いて以下のように記入し、<strong>上書き保存（Windows: Ctrl+S、Mac: Command+S）</strong> してください。
+          </p>
+          <code>OPENAI_API_KEY=sk-...（取得したキー）</code>
+          <p class="note">.env ファイルが見当たらない場合：Windows はフォルダオプション、Mac は Finder で Command+Shift+. を押して隠しファイルを表示してください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Claude Code ===== -->
+  <div class="setup-block">
+    <div class="setup-header green">
+      &#9881;&nbsp; Claude Code（CLI）を使う場合
+      <span class="tag">初回のみ</span>
+    </div>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>OpenAI の API キーを取得して .env ファイルに設定する</h4>
+          <p>同梱の <strong>OpenAI_APIキー取得マニュアル</strong> を参照して設定してください。</p>
+          <code>OPENAI_API_KEY=sk-...（取得したキー）</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Node.js をインストールする</h4>
+          <p>Node.js 公式サイトからバージョン 18 以上をインストールしてください。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Claude Code をインストールする</h4>
+          <code>npm install -g @anthropic-ai/claude-code</code>
+          <p class="note">Claude Pro プラン以上のご契約が必要です。</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>Python パッケージをインストールする</h4>
+          <code>pip install python-docx Pillow openai python-dotenv</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h4>Pandoc をインストールする</h4>
+          <p>Word ファイルの生成に使用します。</p>
+          <code>winget install pandoc</code>
+          <p class="note">Mac の場合：<code>brew install pandoc</code></p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <h4>Claude Code を起動する（毎回）</h4>
+          <p>ターミナルでこのフォルダへ移動して起動してください。</p>
+          <code>cd "このフォルダのパス"</code><br>
+          <code>claude</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 使い方（共通） ===== -->
+  <div class="section-title">使い方 ― Claude に聞かれること</div>
+
+  <p style="font-size:14px; color:#555; margin-bottom:16px;">
+    起動後にテーマを伝えると、Claude から<strong>以下の項目がまとめて一度に</strong>聞かれます。<br>
+    すべて答えると、あとは<strong>全自動で約 30〜60 分</strong>かけて生成が完了します。
+  </p>
+
+  <div class="usage-flow">
+    <div class="usage-header">&#128172; Claude からまとめて聞かれる内容（一度に全部来ます）</div>
+
+    <div class="qa-item">
+      <div class="qa-num">項目1</div>
+      <div class="qa-body">
+        <div class="q">テーマ</div>
+        <div class="a">
+          作りたい電子書籍のテーマを入力してください。<br>
+          <span class="a-label">例：「AIを使った副業の始め方」「40代からの資産運用」など</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-num">項目2</div>
+      <div class="qa-body">
+        <div class="q">カラーモード</div>
+        <div class="a">
+          <strong>フルカラー</strong>（推奨）か <strong>白黒</strong> を選びます。<br>
+          <span class="a-label">迷ったら「フルカラー」でOKです。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-num">項目3</div>
+      <div class="qa-body">
+        <div class="q">キャラクター設定</div>
+        <div class="a">
+          <strong>全部お任せ</strong>（推奨）：AIがキャラを自動設計します<br>
+          <strong>主人公だけ自分で用意</strong>：「キャラ参照」フォルダに画像を置いておく<br>
+          <strong>全員自分で用意</strong>：全キャラの画像を「キャラ参照」フォルダに置く<br>
+          <span class="a-label">初めての方は「全部お任せ」がおすすめです。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-num">項目4</div>
+      <div class="qa-body">
+        <div class="q">1章あたりの漫画ページ数</div>
+        <div class="a">
+          章ごとの漫画ページ数を指定します。<br>
+          <span class="a-label">デフォルト（推奨）は 3〜5 ページ。全5章なので最大 25 ページになります。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-num">項目5</div>
+      <div class="qa-body">
+        <div class="q">漫画の配置位置</div>
+        <div class="a">
+          <strong>章末</strong>（推奨）：各章の最後に漫画を配置<br>
+          <strong>章頭</strong>：各章の最初に漫画を配置<br>
+          <span class="a-label">迷ったら「章末」でOKです。</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="auto-badge" style="margin-top:14px;">
+    &#10003;&nbsp; ここまで答えたら、あとは全自動で完走します。途中で止まった場合は「続けて」と入力してください。
+  </div>
+
+  <div class="alert alert-blue" style="margin-top:14px;">
+    <div class="alert-icon">&#128161;</div>
+    <div class="alert-body">
+      <h3>これ以外にもカスタマイズできます。希望があれば伝えてみてください</h3>
+      <p>
+        項目として聞かれなくても、テーマと一緒に伝えるとその通りに作ってくれます。<br><br>
+        例：<strong>章数を変えたい</strong>（「全7章で作って」）、<strong>文字数を変えたい</strong>（「1章あたり3,000字で」）、<strong>ターゲット読者を指定したい</strong>（「30代の会社員向けに」）、<strong>文体を指定したい</strong>（「親しみやすい口語体で」）など、<br>
+        自由に希望を伝えてみてください。
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ===== よくある質問 ===== -->
+  <div class="section-title">よくある質問</div>
+
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">「403 エラー」や「認証エラー」が出て画像が生成されない</div>
+      <div class="faq-a">OpenAI の組織認証が完了していない可能性があります。OpenAI Platform の Settings &rarr; Organization &rarr; Verifications で認証を完了してください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Word ファイルに空白ページが表示される</div>
+      <div class="faq-a">Kindle Previewer アプリで開いて正常に表示されれば問題ありません。Word での表示上の現象です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">途中で処理が止まった</div>
+      <div class="faq-a">チャット欄に「続けて」と入力してください。API の制限の場合は 1〜2 分待ってから入力してください。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">.env ファイルが見当たらない</div>
+      <div class="faq-a">隠しファイルの表示が必要です。Windows はフォルダオプション、Mac は Finder で Command+Shift+. を押してください。</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  コミクル Neo-GPT &nbsp;|&nbsp; 技術的な詳細は README.md をご参照ください
+</footer>
+
+</body>
+</html>

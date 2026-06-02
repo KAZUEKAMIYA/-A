@@ -1,0 +1,110 @@
+- generic [active] [ref=e1]:
+  - region "Google AI Studio では、サービスの提供および品質向上とトラフィックの分析に Cookie が使用されています。同意すると、広告の配信や、表示されるコンテンツと広告のパーソナライズにも Cookie が使用されます。" [ref=e2]:
+    - paragraph [ref=e3]:
+      - text: Google AI Studio では、サービスの提供および品質向上とトラフィックの分析に Cookie が使用されています。同意すると、広告の配信や、表示されるコンテンツと広告のパーソナライズにも Cookie が使用されます。
+      - link "詳しくは、Google による Cookie の使用についての説明をご覧ください。 新しいタブで開きます。" [ref=e4] [cursor=pointer]:
+        - /url: https://policies.google.com/technologies/cookies?hl=ja
+        - text: 詳細
+    - button "同意する" [ref=e5] [cursor=pointer]
+    - button "同意しない" [ref=e6] [cursor=pointer]
+  - generic [ref=e9]:
+    - button "Skip to main content" [ref=e10]
+    - generic [ref=e12]:
+      - paragraph [ref=e13]:
+        - text: We have updated our
+        - link "Terms of Service" [ref=e14] [cursor=pointer]:
+          - /url: https://ai.google.dev/gemini-api/terms
+      - button "Dismiss" [ref=e15] [cursor=pointer]
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - button "Toggle navigation menu" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]: menu_open
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - link "Google AI Studio logo" [ref=e22] [cursor=pointer]:
+              - /url: /app/prompts/new_chat
+              - img "Google AI Studio logo" [ref=e24]
+            - button "View related products" [ref=e39] [cursor=pointer]:
+              - generic [ref=e40]: expand_more
+          - navigation [ref=e41]:
+            - generic [ref=e42]:
+              - link "Dashboard" [ref=e43] [cursor=pointer]:
+                - /url: /app/prompts/new_chat
+                - generic [ref=e44]: chevron_left
+                - text: Dashboard
+              - list [ref=e46]:
+                - listitem [ref=e47]:
+                  - link "API キー" [ref=e48] [cursor=pointer]:
+                    - /url: /app/api-keys
+                - listitem [ref=e49]:
+                  - link "プロジェクト" [ref=e50] [cursor=pointer]:
+                    - /url: /app/projects
+                - listitem [ref=e51]:
+                  - link "使用量" [ref=e52] [cursor=pointer]:
+                    - /url: /app/usage
+                - listitem [ref=e53]:
+                  - link "レート制限" [ref=e54] [cursor=pointer]:
+                    - /url: /app/rate-limit
+                - listitem [ref=e55]:
+                  - link "利用額" [ref=e56] [cursor=pointer]:
+                    - /url: /app/spend
+                - listitem [ref=e57]:
+                  - link "課金" [ref=e58] [cursor=pointer]:
+                    - /url: /app/billing
+                - listitem [ref=e59]:
+                  - link "ログとデータセット" [ref=e60] [cursor=pointer]:
+                    - /url: /app/logs
+                - listitem [ref=e61]:
+                  - link "変更履歴" [ref=e62] [cursor=pointer]:
+                    - /url: https://ai.google.dev/gemini-api/docs/changelog
+                    - text: 変更履歴
+                    - generic [ref=e63]: arrow_outward
+            - generic [ref=e65]:
+              - button "Search Ctrl /" [ref=e66] [cursor=pointer]:
+                - generic [ref=e67]: search
+                - generic [ref=e68]: Search
+                - generic [ref=e69]: Ctrl /
+              - button "What's new" [ref=e71] [cursor=pointer]:
+                - generic [ref=e72]: notifications
+                - text: What's new
+              - button "Get API key" [ref=e74] [cursor=pointer]:
+                - generic [ref=e75]: key
+                - text: Get API key
+              - button "Settings" [ref=e77] [cursor=pointer]:
+                - generic [ref=e78]: settings
+                - text: Settings
+              - generic [ref=e79]:
+                - button "kkazue6@gmail.com" [ref=e80] [cursor=pointer]:
+                  - generic [ref=e81]: kkazue6@gmail.com
+                - 'button "Google アカウント: kazue (kazu-ee)（kkazue6@gmail.com）" [ref=e84] [cursor=pointer]':
+                  - img "kazue (kazu-ee)" [ref=e87]
+      - main [ref=e88]:
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - heading "API キー" [level=2] [ref=e96]
+            - generic [ref=e97]:
+              - link "API クイックスタート" [ref=e98] [cursor=pointer]:
+                - /url: https://ai.google.dev/gemini-api/docs/quickstart
+                - generic [ref=e99]: docs
+                - text: API クイックスタート
+              - button "API キーを作成" [ref=e100] [cursor=pointer]:
+                - generic [ref=e101]: key
+                - text: API キーを作成
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - generic [ref=e104]: グループ化
+              - generic [ref=e105]:
+                - button "API キー" [ref=e106] [cursor=pointer]
+                - button "プロジェクト" [ref=e107] [cursor=pointer]
+            - generic [ref=e109]:
+              - generic [ref=e110]: フィルタ条件
+              - combobox "フィルタ条件" [ref=e115] [cursor=pointer]:
+                - generic [ref=e116]:
+                  - generic [ref=e118]: すべてのプロジェクト
+                  - generic [ref=e119]: expand_more
+          - progressbar [ref=e121]:
+            - img [ref=e123]
+            - generic [ref=e126]:
+              - img [ref=e128]
+              - img [ref=e131]
+              - img [ref=e134]

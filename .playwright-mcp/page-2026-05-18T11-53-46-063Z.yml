@@ -1,0 +1,51 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - progressbar [ref=e6]
+      - main [ref=e212]:
+        - generic [ref=e213]:
+          - img [ref=e216]
+          - generic [ref=e221]:
+            - heading "kazue" [level=1] [ref=e222]
+            - link "kkazue6@gmail.com を選択しました。アカウントを切り替えてください" [ref=e224] [cursor=pointer]:
+              - generic [ref=e227]: kkazue6@gmail.com
+              - img [ref=e229]
+        - generic [ref=e239]:
+          - generic [ref=e247]:
+            - textbox "パスワードを入力" [active] [ref=e248]
+            - generic: パスワードを入力
+          - generic [ref=e251]:
+            - img [ref=e253]
+            - generic [ref=e255]: パスワードを入力してください
+          - generic [ref=e260]:
+            - generic [ref=e263] [cursor=pointer]:
+              - checkbox "パスワードを表示する" [ref=e264]
+              - generic:
+                - img
+            - generic [ref=e267] [cursor=pointer]: パスワードを表示する
+        - generic [ref=e269]:
+          - button "次へ" [ref=e273] [cursor=pointer]:
+            - generic [ref=e276]: 次へ
+          - button "別の方法を試す" [ref=e280]:
+            - generic [ref=e283]: 別の方法を試す
+    - contentinfo [ref=e69]:
+      - combobox "言語の変更 日本語" [ref=e73] [cursor=pointer]:
+        - generic:
+          - generic: 日本語
+        - generic:
+          - img
+      - list [ref=e75]:
+        - listitem [ref=e76]:
+          - link "ヘルプ" [ref=e77] [cursor=pointer]:
+            - /url: https://support.google.com/accounts?hl=ja&p=account_iph
+        - listitem [ref=e78]:
+          - link "プライバシー" [ref=e79] [cursor=pointer]:
+            - /url: https://accounts.google.com/TOS?loc=JP&hl=ja&privacy=true
+        - listitem [ref=e80]:
+          - link "規約" [ref=e81] [cursor=pointer]:
+            - /url: https://accounts.google.com/TOS?loc=JP&hl=ja
+  - iframe [ref=e82]:
+    
+  - generic [ref=e285]: kazue
+  - iframe [ref=e210]:
+    
