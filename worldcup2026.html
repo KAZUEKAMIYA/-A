@@ -484,9 +484,11 @@ function setTrophyCursor(on){
   mapWrap.querySelectorAll('*').forEach(el=>el.style.cursor=on?'none':'');
   trophyEl.style.display=on?'block':'none';
 }
+if(window.matchMedia('(hover:hover)').matches){
 mapWrap.addEventListener('mousemove',e=>{trophyEl.style.left=e.clientX+'px';trophyEl.style.top=e.clientY+'px';});
 mapWrap.addEventListener('mouseenter',()=>{setTrophyCursor(true);mapWrap.classList.add('trophy-cursor');if(!mapIsLight){map.removeLayer(darkTile);osmTile.addTo(map);mapIsLight=true;}});
 mapWrap.addEventListener('mouseleave',()=>{setTrophyCursor(false);mapWrap.classList.remove('trophy-cursor');if(mapIsLight){map.removeLayer(osmTile);darkTile.addTo(map);mapIsLight=false;}});
+}
 
 const vmap={};matches.forEach(m=>{if(!vmap[m.vid])vmap[m.vid]=[];vmap[m.vid].push(m)});
 
